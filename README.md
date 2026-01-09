@@ -210,13 +210,34 @@ dependencies {
 
 ### Configuring Server Testing
 
+**Run Hytale Server** - A Gradle plugin to download and run a Hytale server for development and testing purposes. The server files will be located in the `run/` directory of the project. Before starting the server it will compile (shadowJar task) and copy the plugin jar to the server's `plugins/` folder.
+
+**Usage:**
+
 Edit `build.gradle.kts`:
 
 ```kotlin
 runHytale {
-    jarUrl = "https://example.com/hytale-server.jar" // Update when available
+    jarUrl = "url to hytale server jar"
 }
 ```
+
+Run the server with:
+
+```bash
+# Windows
+gradlew.bat runServer
+
+# Linux/Mac
+./gradlew runServer
+```
+
+**Features:**
+- ✅ Automatic server JAR download and caching
+- ✅ Compiles and deploys your plugin automatically
+- ✅ Starts server with interactive console
+- ✅ One-command workflow: `./gradlew runServer`
+- ✅ Server files in `run/` directory (gitignored)
 
 ### Implementing Your Plugin
 
